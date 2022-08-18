@@ -4,9 +4,13 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/manuelmaciel/go-api-gorm/database"
 )
 
 func main() {
+
+	database.DBConnection()
+
 	r := mux.NewRouter()
 
 	// writer and reader
