@@ -5,11 +5,15 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/manuelmaciel/go-api-gorm/database"
+	"github.com/manuelmaciel/go-api-gorm/models"
 )
 
 func main() {
 
 	database.DBConnection()
+
+	database.DB.AutoMigrate(&models.User{})
+	database.DB.AutoMigrate(&models.Task{})
 
 	r := mux.NewRouter()
 
